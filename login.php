@@ -1,5 +1,5 @@
 <?php
-    $email = $_POST["email"];
-    $pswrd = $_POST["senha"];
+    echo $_POST["email"];
+    echo $_POST["senha"];
 
 ?>
