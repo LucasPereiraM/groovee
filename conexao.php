@@ -1,14 +1,12 @@
 <?php
     $host = "localhost";
-    $user = "root";
-    $password = "root";
-    $db_name = "dadoslogin";
+    $usuario = "root";
+    $senha = '';
+    $database = "dadoslogin";
+    $mysqli = new mysqli($host,$usuario,$senha,$database);
 
-    $con = mysqli_connect($host,$password,$db_name);
-
-    if(mysqli_connect_error()){
-        die("Falha de conexão ao banco de dados: " . mysqli_connect_error());
+    if($mysqli->error){
+        die("Falha de conexão ao banco de dados: " . $mysqli->error);
     }
-    echo "Conectado com sucesso!";
 
 ?>

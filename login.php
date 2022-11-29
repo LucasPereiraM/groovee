@@ -1,3 +1,7 @@
+<?php
+include ('conexao.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +43,7 @@
     <br><br><br>
   </div>
   <div class="form">
-    <h1>Cadastro</h1>
+    <h1>Login</h1>
     <form action="login.php" method="post">
         <label for="email"><b>E-mail: </b></label>
         <input type="text" name="email"><br>
