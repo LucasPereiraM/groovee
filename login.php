@@ -1,3 +1,7 @@
+<?php
+include ('conexao.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,19 +14,20 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
 </head>
 <header>
     <ul class="nav justify-content-center">
         <li class="nav-item">
-            <a class="nav-link active" href="index.php">
+            <a class="nav-link" href="index.php">
                 <img class="logo" src="logo.jpg">
             </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="index.php">Home</a>
+          <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Faça Login</a>
+          <a class="nav-link active" href="login.php">Faça Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="cadastro.php">Cadastrar</a>
@@ -32,9 +37,22 @@
         </li>
       </ul>
 </header>
-<body>
 
-    
+<body>
+  <div>
+    <br><br><br>
+  </div>
+  <div class="form">
+    <h1>Login</h1>
+    <form action="login.php" method="post">
+        <label for="email"><b>E-mail: </b></label>
+        <input type="text" name="email"><br>
+        <label for="senha"><b>Senha: </b></label>
+        <input type="password" name="senha"><br><br>
+        <input type="submit" id="enviar"><br>
+    </form>
+</div>
+
 </body>
 <footer>
 
