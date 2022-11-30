@@ -1,9 +1,7 @@
 <?php
-include('conexao.php');
 
 $email = $senha = $nome = "";
 $emailErr = $senhaErr = $nomeErr = "";
-$test = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -12,9 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     if (!preg_match("/^[a-zA-Z-' ]*$/", $_POST["nome"])) {
       $nomeErr = "Apenas letras e espaços em brancos permitidos!";
-    } else{
+    } else {
       $nome = test_input($_POST["nome"]);
-      $test=true;
     }
   }
 
@@ -23,15 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
       $emailErr = "Formato de email inválido";
-    } else{
+    } else {
       $email = test_input($_POST["email"]);
-      $test=true;
     }
   }
 
-  if(empty($_POST["senha"])){
+  if (empty($_POST["senha"])) {
     $senhaErr = "Campo SENHA é obrigatório!";
-  } else{
+  } else {
     $uppercase = preg_match('@[A-Z]@', $_POST["senha"]);
     $lowercase = preg_match('@[a-z]@', $_POST["senha"]);
     $number = preg_match('@[0-9]@', $_POST["senha"]);
@@ -40,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $senhaErr = "Senha deve ter: 8 caracteres, incluir pelo menos uma letra maiúscula, um número, e um caractere especial.";
     } else {
       $senha = test_input($_POST["senha"]);
-      $test = true;
+      $senhaH = password_hash($senha,PASSWORD_BCRYPT);
     }
   }
 }

@@ -1,4 +1,5 @@
 <?php
+include('conexao.php');
 include ('auth.php');
 ?>
 
@@ -46,15 +47,15 @@ include ('auth.php');
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
             <label for="nome"><b>Nome: </b></label>
             <input type="text" name="nome"><br>
-            <?php echo $nomeErr . "<br>" .$nome ?>
+            <?php echo $nomeErr . "<br>"?>
 
             <label for="email"><b>E-mail: </b></label>
             <input type="text" name="email"><br>
-            <?php echo $emailErr . "<br>" .$email ?>
+            <?php echo $emailErr . "<br>"?>
 
             <label for="senha"><b>Senha: </b></label>
-            <input type="password" name="senha"><br><br>
-            <?php echo $senhaErr ."<br>" . $senha?>
+            <input type="password" name="senha"><br>
+            <?php echo $senhaErr . "<br>"?><br>
 
             <input type="submit" id="enviar"><br>
         </form>
