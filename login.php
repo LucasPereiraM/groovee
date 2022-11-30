@@ -1,7 +1,3 @@
-<?php
-include ('conexao.php');
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +40,7 @@ include ('conexao.php');
   </div>
   <div class="form">
     <h1>Login</h1>
-    <form action="login.php" method="post">
+    <form action="auth.php" method="post">
         <label for="email"><b>E-mail: </b></label>
         <input type="text" name="email"><br>
         <label for="senha"><b>Senha: </b></label>

@@ -1,3 +1,7 @@
+<?php
+include ('auth.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,13 +43,19 @@
     </div>
     <div class="form">
         <h1>Cadastro</h1>
-        <form action="User.php" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
             <label for="nome"><b>Nome: </b></label>
             <input type="text" name="nome"><br>
+            <?php echo $nomeErr . "<br>" .$nome ?>
+
             <label for="email"><b>E-mail: </b></label>
             <input type="text" name="email"><br>
+            <?php echo $emailErr . "<br>" .$email ?>
+
             <label for="senha"><b>Senha: </b></label>
             <input type="password" name="senha"><br><br>
+            <?php echo $senhaErr ."<br>" . $senha?>
+
             <input type="submit" id="enviar"><br>
         </form>
     </div>
