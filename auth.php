@@ -1,45 +1,55 @@
 <?php
-include ('conexao.php');
+include('conexao.php');
 
 $email = $senha = $nome = "";
 $emailErr = $senhaErr = $nomeErr = "";
+$test = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (empty($_POST["nome"])) {
-      $nameErr = "Campo NOME é obrigatório!";
-    } else {
+  if (empty($_POST["nome"])) {
+    $nomeErr = "Campo NOME é obrigatório!";
+  } else {
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $_POST["nome"])) {
+      $nomeErr = "Apenas letras e espaços em brancos permitidos!";
+    } else{
       $nome = test_input($_POST["nome"]);
-      if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-        $nomeErr = "Apenas letras e espaços em brancos permitidos!";
-      }
+      $test=true;
     }
+  }
 
-    if (empty($_POST["email"])) {
-        $emailErr = "Campo EMAIL é necessário";
+  if (empty($_POST["email"])) {
+    $emailErr = "Campo EMAIL é obrigatório!";
+  } else {
+    if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Formato de email inválido";
+    } else{
+      $email = test_input($_POST["email"]);
+      $test=true;
+    }
+  }
+
+  if(empty($_POST["senha"])){
+    $senhaErr = "Campo SENHA é obrigatório!";
+  } else{
+    $uppercase = preg_match('@[A-Z]@', $_POST["senha"]);
+    $lowercase = preg_match('@[a-z]@', $_POST["senha"]);
+    $number = preg_match('@[0-9]@', $_POST["senha"]);
+    $specialChars = preg_match('@[^\w]@', $_POST["senha"]);
+    if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($_POST["senha"]) < 8) {
+      $senhaErr = "Senha deve ter: 8 caracteres, incluir pelo menos uma letra maiúscula, um número, e um caractere especial.";
     } else {
-        $email = test_input($_POST["email"]);
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          $emailErr = "Formato de email inválido";
-        }
+      $senha = test_input($_POST["senha"]);
+      $test = true;
     }
-
-    $senha = $_POST["senha"];
-    $uppercase = preg_match('@[A-Z]@', $senha);
-    $lowercase = preg_match('@[a-z]@', $senha);
-    $number = preg_match('@[0-9]@', $senha);
-    $specialChars = preg_match('@[^\w]@', $senha);
-    if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($senha) < 8) {
-        $senhaErr = "Senha deve ter: 8 caracteres, incluir pelo menos uma letra maiúscula, um número, e um caractere especial.";
-    }else{
-        $senha = test_input($senha);
-    }
+  }
 }
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
+function test_input($data)
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 ?>
