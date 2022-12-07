@@ -1,0 +1,56 @@
+header{
+    background-color: white;
+}
+
+.nav-item a{
+    color: #1ed760;
+}
+
+.nav-item a:hover{
+    color: #24744d;
+}
+
+img.logo{
+    max-width: 50px;
+}
+
+input{
+    background-color: #c9eed6;
+    color: #000;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+body{
+    background-color: #1f2220;
+}
+h1{
+    color: #1b221b;
+    font-size: 30px;
+}
+.form{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    align-self: center;
+    text-align: center;
+    background-color: #fff;
+}
+#enviar{
+    font-size: 15px;
+    padding: 5px 15px;
+    color: #000;
+    background-color: #95e4b1;
+    border-radius: 10%;
+    border-color: #24744d;
+    border-style: line;
+    border-width: 2px;
+    box-shadow: #95e4b1;
+}
+label{
+    color: #1b221b;
+}
