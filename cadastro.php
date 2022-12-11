@@ -7,7 +7,7 @@ if (isset($_POST['cadastrobtn'])) {
   $email = $_POST['email'];
   $senha = $_POST['senha'];
   
-  $result = mysqli_query($conn, "INSERT INTO usuario(nome, email, senha)
+  $result = mysqli_query($conn, "INSERT INTO usuarios(nome, email, senha)
             VALUES ('$nome', '$email', '$senha')");
 }
 
