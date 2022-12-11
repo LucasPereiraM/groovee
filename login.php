@@ -10,7 +10,7 @@ if (isset($_POST['loginbtn'])) {
   $email = $_POST['email'];
   $senha = $_POST['senha'];
   
-  $result = mysqli_query($conn, "SELECT 'email','senha' FROM usuario WHERE 'email' = '$email' AND 'senha' = '$senha'");
+  $result = mysqli_query($conn, "SELECT 'email','senha' FROM usuarios WHERE 'email' = '$email' AND 'senha' = '$senha'");
   if($result==true){
     header('Location: index.php');
   }
@@ -62,7 +62,7 @@ if (isset($_POST['loginbtn'])) {
   </div>
   <div class="form">
     <h1>Login</h1>
-    <form action="auth.php" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <label for="email"><b>E-mail: </b></label>
         <input type="text" name="email"><br>
         <label for="senha"><b>Senha: </b></label>
