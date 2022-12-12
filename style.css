@@ -54,3 +54,10 @@ h1{
 label{
     color: #1b221b;
 }
+
+.userInfo{
+    background-color: #24744d;
+}
+.userInfo h1,h2{
+    color: white;
+}

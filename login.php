@@ -1,8 +1,5 @@
 <?php
 include('conexao.php');
-// ------------------------------------------------
-// tem que ver o que ta dando de errado no login aqui
-// ------------------------------------------------
 
 if (isset($_POST['loginbtn'])) {
 
