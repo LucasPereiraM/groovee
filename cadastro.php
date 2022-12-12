@@ -1,10 +1,11 @@
 <?php
 include('conexao.php');
 include('auth.php');
+
 if (isset($_POST['cadastrobtn']) && !$empty) {
   
   $result = mysqli_query($conn, "INSERT INTO usuarios(nome, email, senha)
-            VALUES ('$nome', '$email', '$senhaH')");
+            VALUES ('$nome', '$email', '$senha')");
 }
 
 ?>
@@ -48,7 +49,7 @@ if (isset($_POST['cadastrobtn']) && !$empty) {
     <div>
         <br><br><br>
     </div>
-    
+
     <div class="form">
         <h1>Cadastro</h1>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">

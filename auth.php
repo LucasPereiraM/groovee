@@ -1,8 +1,8 @@
 <?php
 include('conexao.php');
 
-$email = $senha = $senhaH = $nome = "";
-$emailErr = $senhaErr = $nomeErr = "";
+$email = $senha = $senhaH = $nome = '';
+$emailErr = $senhaErr = $nomeErr = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $senhaH = password_hash($senha, PASSWORD_BCRYPT);
     }
   }
-  $empty = test_empty($nome, $email, $senhaH);
+  $empty = test_empty($nome, $email, $senha);
 }
 
 function test_input($data)
