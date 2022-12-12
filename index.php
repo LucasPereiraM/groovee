@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['email']) && isset($_SESSION['nome'])) {
+if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
 ?>
 
   <!DOCTYPE html>
@@ -40,7 +40,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['nome'])) {
   </header>
   <body>
       <div class="userInfo">
-          <h1> Usuário: <?php echo $_SESSION['email'] ?> </h1>
+          <h1> Usuário: <?php echo $_SESSION['usuario'] ?> </h1>
           <h2> Bem vindo, <?php echo $_SESSION['nome'] ?> </h2>
       </div>
   </body>
