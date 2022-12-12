@@ -1,20 +1,36 @@
 <?php
 include('conexao.php');
-include('auth.php');
 // ------------------------------------------------
 // tem que ver o que ta dando de errado no login aqui
 // ------------------------------------------------
 
-if (isset($_POST['loginbtn']) && !$empty) {
+if (isset($_POST['loginbtn'])) {
 
-    $result = mysqli_query($conn, "SELECT 'email','senha' FROM usuarios WHERE 'email' = '$email' AND 'senha' = '$senha'");
+  $email = $_POST['email'];
+  $senha = $_POST['senha'];
 
-    if ($result == true) {
-      header('Location: index.php');
-    } else {
-      header('Location: login.php');
+  $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+
+  $result = mysqli_query($conn, $sql);
+
+  if (mysqli_num_rows($result) === 1) {
+    $row = mysqli_fetch_assoc($result);
+    if ($row['email'] === $email && $row['senha'] === $senha) {
+      echo "Login feito com sucesso!";
+      $_SESSION['usuario'] = $row['email'];
+      $_SESSION['nome'] = $row['nome'];
+      header("Location: index.php");
+      exit();
     }
-  
+    else {
+      header("Location: login.php?error=Usuario ou Senha Incorreto");
+      exit();
+    }
+  } else {
+    header("Location: login.php");
+    exit();
+  }
+
 }
 ?>
 
@@ -71,16 +87,13 @@ if (isset($_POST['loginbtn']) && !$empty) {
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <label for="email"><b>E-mail: </b></label>
       <input type="text" name="email"><br>
-      <?php echo $emailErr . "<br>" ?>
 
       <label for="senha"><b>Senha: </b></label>
       <input type="password" name="senha"><br><br>
-      <?php echo $senhaErr ?><br>
 
       <input type="submit" id="enviar" name="loginbtn"><br>
     </form>
   </div>
-
 </body>
 <footer>
 
