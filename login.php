@@ -1,5 +1,6 @@
 <?php
 include('conexao.php');
+session_start();
 
 if (isset($_POST['loginbtn'])) {
 
