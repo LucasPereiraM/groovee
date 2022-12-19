@@ -42,6 +42,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
       <div class="userInfo">
           <h1> Usuário: <?php echo $_SESSION['usuario'] ?> </h1>
           <h2> Bem vindo, <?php echo $_SESSION['nome'] ?> </h2>
+          <a href="logout.php">Fazer logout</a>
       </div>
   </body>
   <footer>
