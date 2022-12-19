@@ -1,6 +1,13 @@
 <?php
 include('conexao.php');
-include ('auth.php');
+include('auth.php');
+
+if (isset($_POST['cadastrobtn']) && !$empty) {
+  
+  $result = mysqli_query($conn, "INSERT INTO usuarios(nome, email, senha)
+            VALUES ('$nome', '$email', '$senha')");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +49,7 @@ include ('auth.php');
     <div>
         <br><br><br>
     </div>
+
     <div class="form">
         <h1>Cadastro</h1>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
@@ -57,7 +65,7 @@ include ('auth.php');
             <input type="password" name="senha"><br>
             <?php echo $senhaErr . "<br>"?><br>
 
-            <input type="submit" id="enviar"><br>
+            <input type="submit" id="enviar" name="cadastrobtn"><br>
         </form>
     </div>
 </body>

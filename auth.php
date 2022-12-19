@@ -1,7 +1,8 @@
 <?php
+include('conexao.php');
 
-$email = $senha = $nome = "";
-$emailErr = $senhaErr = $nomeErr = "";
+$email = $senha = $senhaH = $nome = '';
+$emailErr = $senhaErr = $nomeErr = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -36,9 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $senhaErr = "Senha deve ter: 8 caracteres, incluir pelo menos uma letra maiúscula, um número, e um caractere especial.";
     } else {
       $senha = test_input($_POST["senha"]);
-      $senhaH = password_hash($senha,PASSWORD_BCRYPT);
+      $senhaH = password_hash($senha, PASSWORD_BCRYPT);
     }
   }
+  $empty = test_empty($nome, $email, $senha);
 }
 
 function test_input($data)
@@ -48,4 +50,15 @@ function test_input($data)
   $data = htmlspecialchars($data);
   return $data;
 }
+
+function test_empty($nome, $email, $senha)
+{
+  foreach (func_get_args() as $arg)
+    if (empty($arg))
+      continue;
+    else
+      return false;
+  return true;
+}
+
 ?>
