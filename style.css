@@ -56,8 +56,10 @@ label{
 }
 
 .userInfo{
-    background-color: #95e4b1;
+    background-color: #24744d;
+    width:auto;
 }
-.userInfo h1,h2{
+.userInfo h1,h2,a{
     color: white;
+    text-indent: 12px;
 }

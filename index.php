@@ -39,11 +39,14 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
         </ul>
   </header>
   <body>
+    <div class="container">
       <div class="userInfo">
-          <h1> Usuário: <?php echo $_SESSION['usuario'] ?> </h1>
-          <h2> Bem vindo, <?php echo $_SESSION['nome'] ?> </h2>
-          <a href="logout.php">Fazer logout</a>
+            <h1> Usuário: <?php echo $_SESSION['usuario'] ?> </h1>
+            <h2> Bem vindo, <?php echo $_SESSION['nome'] ?> </h2>
+            <a href="logout.php">Fazer logout</a>
       </div>
+    </div>
+      
   </body>
   <footer>
 
