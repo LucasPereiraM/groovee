@@ -40,13 +40,20 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
   </header>
   <body>
     <div class="container">
-        <div class="userInfo">
-          <h1> Usuário: <?php echo $_SESSION['usuario'] ?> </h1>
-          <h2> Bem vindo, <?php echo $_SESSION['nome'] ?> </h2>
-          <a href="logout.php">Página de Usuário</a>
-          <br>
-          <a href="logout.php">Fazer logout</a>
+
+      <div class="row">
+        <div class="col-5">
+          <div class="userInfo">
+            <h1> Usuário: <?php echo $_SESSION['usuario'] ?> </h1>
+            <h2> Bem vindo, <?php echo $_SESSION['nome'] ?> </h2>
+            <a href="index.php">Página de Usuário</a>
+              <br>
+            <a href="logout.php">Fazer logout</a>
+          </div>
         </div>
+      </div>
+        
+        
     </div>
       
   </body>
