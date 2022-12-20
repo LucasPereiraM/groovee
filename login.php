@@ -84,7 +84,7 @@ if (isset($_POST['loginbtn'])) {
     <h1>Login</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <label for="email"><b>E-mail: </b></label>
-      <input type="text" name="email"><br>
+      <input type="text" name="email"><br><br>
 
       <label for="senha"><b>Senha: </b></label>
       <input type="password" name="senha"><br><br>
