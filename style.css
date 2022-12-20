@@ -57,9 +57,6 @@ label{
 
 .userInfo{
     background-color: #24744d;
-    width:auto;
-}
-.userInfo h1,h2,a{
-    color: white;
+    float: right;
     text-indent: 12px;
 }
