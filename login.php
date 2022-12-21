@@ -65,13 +65,13 @@ if (isset($_POST['loginbtn'])) {
       <a class="nav-link" href="index.php">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="login.php">Faça Login</a>
+      <a class="nav-link disabled" href="login.php">Faça Login</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="cadastro.php">Cadastrar</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="#">Músicas</a>
+      <a class="nav-link" href="busca.php">Músicas</a>
     </li>
   </ul>
 </header>

@@ -26,7 +26,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="index.php">Home</a>
+        <a class="nav-link disabled" href="index.php">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="login.php">Faça Login</a>
@@ -35,7 +35,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
         <a class="nav-link" href="cadastro.php">Cadastrar</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Músicas</a>
+        <a class="nav-link" href="busca.php">Músicas</a>
       </li>
     </ul>
   </header>
@@ -48,17 +48,15 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
       </div>
 
       <div class="row">
-        <div class="col">
-          <div class="userInfo">
-            <h1> Bem vindo, <?php echo $_SESSION['nome'] ?> </h1>
-            <a href="userpage.php">Página de Usuário</a>
-            <br>
-            <a href="logout.php">Fazer logout</a>
-          </div>
-        </div>  
+                <div class="col">
+                    <div class="userInfo">
+                        <h1> <?php echo $_SESSION['usuario'] ?> </h1>
+                        <h2> <?php echo $_SESSION['nome'] ?> </h2>
+                        <a href="logout.php">Fazer logout</a>
+                    </div>
+                </div>
+            </div>
       </div>
-
-    </div>
 
   </body>
   <footer>

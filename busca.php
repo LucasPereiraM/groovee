@@ -30,10 +30,10 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                 <a class="nav-link active" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.php">Faça Login</a>
+                <a class="nav-link active" href="login.php">Faça Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="cadastro.php">Cadastrar</a>
+                <a class="nav-link active" href="cadastro.php">Cadastrar</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Músicas</a>
@@ -48,33 +48,16 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                 <br><br>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <div class="userInfo">
-                        <h1> <?php echo $_SESSION['usuario'] ?> </h1>
-                        <h2> <?php echo $_SESSION['nome'] ?> </h2>
-                        <a href="logout.php">Fazer logout</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <br>
+            <div class="row-1">
+                <form action="">
+                    <input name="busca" value="<?php if (isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa" type="text">
+                    <button type="submit">Pesquisar</button>
+                </form>
             </div>
 
             <div class="row">
                 <div class="col">
                     <div class="musicInfo">
-                        <h1>Músicas Favoritas</h1>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="musicInfo">
-                        <form action="">
-                            <input name="busca" value="<?php if (isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa" type="text">
-                            <button type="submit">Pesquisar</button>
-                        </form>
 
                         <table class="table" width="600px" border="1">
 
@@ -133,7 +116,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                                 } ?>
 
                             </tbody>
-                            
+
                         </table>
 
                     </div>
