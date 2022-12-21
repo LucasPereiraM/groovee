@@ -48,15 +48,15 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
       </div>
 
       <div class="row">
-                <div class="col">
-                    <div class="userInfo">
-                        <h1> <?php echo $_SESSION['usuario'] ?> </h1>
-                        <h2> <?php echo $_SESSION['nome'] ?> </h2>
-                        <a href="logout.php">Fazer logout</a>
-                    </div>
-                </div>
-            </div>
+        <div class="col">
+          <div class="userInfo">
+            <h1> <?php echo $_SESSION['usuario'] ?> </h1>
+            <h2> <?php echo $_SESSION['nome'] ?> </h2>
+            <a href="logout.php">Fazer logout</a>
+          </div>
+        </div>
       </div>
+    </div>
 
   </body>
   <footer>
