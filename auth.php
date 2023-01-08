@@ -60,5 +60,3 @@ function test_empty($nome, $email, $senha)
       return false;
   return true;
 }
-
-?>

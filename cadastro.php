@@ -38,10 +38,10 @@ if (isset($_POST['cadastrobtn']) && !$empty) {
           <a class="nav-link" href="login.php">Faça Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="cadastro.php">Cadastrar</a>
+          <a class="nav-link disabled" href="cadastro.php">Cadastrar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Músicas</a>
+          <a class="nav-link" href="busca.php">Músicas</a>
         </li>
       </ul>
 </header>
