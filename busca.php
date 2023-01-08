@@ -57,71 +57,66 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
 
             <div class="row">
                 <div class="col">
-                    <div class="musicInfo">
+                    <table class="table table-dark" border="1">
 
-                        <table class="table" width="600px" border="1">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Artista</th>
+                                <th>Album</th>
+                                <th>Genero</th>
+                                <th>Ano</th>
+                            </tr>
+                        </thead>
 
-                            <thead>
+                        <tbody>
+                            <?php
+                            if (!isset($_GET['busca'])) {
+                            ?>
                                 <tr>
-                                    <th>Nome</th>
-                                    <th>Artista</th>
-                                    <th>Album</th>
-                                    <th>Genero</th>
-                                    <th>Ano</th>
-                                    <th>Id</th>
+                                    <td colspan="6">Digite algo para pesquisar...</td>
                                 </tr>
-                            </thead>
-
-                            <tbody>
                                 <?php
-                                if (!isset($_GET['busca'])) {
-                                ?>
-                                    <tr>
-                                        <td colspan="6">Digite algo para pesquisar...</td>
-                                    </tr>
-                                    <?php
-                                } else {
-                                    $pesquisa = $connMusic->real_escape_string($_GET['busca']);
-                                    $sql_code = "SELECT * 
+                            } else {
+                                $pesquisa = $connMusic->real_escape_string($_GET['busca']);
+                                $sql_code = "SELECT * 
                                 FROM listamusicas 
                                 WHERE nome LIKE '%$pesquisa%' 
                                 OR artista LIKE '%$pesquisa%'
                                 OR album LIKE '%$pesquisa%'
                                 OR genero LIKE '%$pesquisa%'
                                 OR ano LIKE '%$pesquisa%'";
-                                    $sql_query = $connMusic->query($sql_code) or die("ERRO ao consultar! " . $connMusic->error);
+                                $sql_query = $connMusic->query($sql_code) or die("ERRO ao consultar! " . $connMusic->error);
 
-                                    if ($sql_query->num_rows == 0) {
+                                if ($sql_query->num_rows == 0) {
+                                ?>
+                                    <tr>
+                                        <td colspan="6">Nenhum resultado encontrado...</td>
+                                    </tr>
+                                    <?php
+                                } else {
+                                    while ($dados = $sql_query->fetch_assoc()) {
                                     ?>
                                         <tr>
-                                            <td colspan="6">Nenhum resultado encontrado...</td>
+                                            <td><?php echo $dados['nome']; ?></td>
+                                            <td><?php echo $dados['artista']; ?></td>
+                                            <td><?php echo $dados['album']; ?></td>
+                                            <td><?php echo $dados['genero']; ?></td>
+                                            <td><?php echo $dados['ano']; ?></td>
                                         </tr>
-                                        <?php
-                                    } else {
-                                        while ($dados = $sql_query->fetch_assoc()) {
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $dados['nome']; ?></td>
-                                                <td><?php echo $dados['artista']; ?></td>
-                                                <td><?php echo $dados['album']; ?></td>
-                                                <td><?php echo $dados['genero']; ?></td>
-                                                <td><?php echo $dados['ano']; ?></td>
-                                                <td><?php echo $dados['id']; ?></td>
-                                            </tr>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
                                 <?php
-                                } ?>
+                                    }
+                                }
+                                ?>
+                            <?php
+                            } ?>
 
-                            </tbody>
+                        </tbody>
 
-                        </table>
-
-                    </div>
+                    </table>
                 </div>
             </div>
+
         </div>
 
     </body>
