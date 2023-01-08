@@ -50,14 +50,14 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
 
             <div class="row-1">
                 <form action="">
-                    <input name="busca" value="<?php if (isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa" type="text">
+                    <input name="busca" value="<?php if (isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa" type="text" style="width:500px;">
                     <button type="submit">Pesquisar</button>
                 </form>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <table class="table table-dark" border="1">
+                    <table class="table table-striped table-dark" border="1">
 
                         <thead>
                             <tr>
@@ -110,7 +110,6 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                                 ?>
                             <?php
                             } ?>
-
                         </tbody>
 
                     </table>
