@@ -1,6 +1,7 @@
 <?php
 include("conexao.php");
 session_start();
+$link = "https://open.spotify.com/track/2073QOEC8rBtSyTsRyaWiP?si=c5e6a93ada5f4eed";
 
 if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
 ?>
@@ -18,6 +19,9 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
+        <script type="text/javascript" src=""></script>
     </head>
     <header>
         <ul class="nav justify-content-center">
@@ -114,6 +118,22 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
 
                     </table>
                 </div>
+            </div>
+
+            <script>
+                var php_link = "<?php echo $link; ?>";
+                window.onSpotifyIframeApiReady = (IFrameAPI) => {
+                    let element = document.getElementById('embed-iframe');
+                    let options = {
+                        uri: php_link
+                    };
+                    let callback = (EmbedController) => {};
+                    IFrameAPI.createController(element, options, callback);
+                };
+            </script>
+
+            <div class="row">
+                <div id="embed-iframe"></div>
             </div>
 
         </div>
