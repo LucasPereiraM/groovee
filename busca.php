@@ -70,6 +70,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                                 <th>Album</th>
                                 <th>Genero</th>
                                 <th>Ano</th>
+                                <th>Prévia</th>
                             </tr>
                         </thead>
 
@@ -133,7 +134,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                     IFrameAPI.createController(element, options, callback);
                 };
             </script>
-            
+
         </div>
 
     </body>
