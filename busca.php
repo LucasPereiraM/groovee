@@ -107,6 +107,9 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                                             <td><?php echo $dados['album']; ?></td>
                                             <td><?php echo $dados['genero']; ?></td>
                                             <td><?php echo $dados['ano']; ?></td>
+
+                                            <script> var php_link = "<?php echo $dados['link']; ?>"; </script> 
+                                            <td> <div id="embed-iframe"></div> </td>
                                         </tr>
                                 <?php
                                     }
@@ -121,7 +124,6 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
             </div>
 
             <script>
-                var php_link = "<?php echo $link; ?>";
                 window.onSpotifyIframeApiReady = (IFrameAPI) => {
                     let element = document.getElementById('embed-iframe');
                     let options = {
@@ -131,11 +133,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                     IFrameAPI.createController(element, options, callback);
                 };
             </script>
-
-            <div class="row">
-                <div id="embed-iframe"></div>
-            </div>
-
+            
         </div>
 
     </body>
