@@ -1,7 +1,6 @@
 <?php
 include("conexao.php");
 session_start();
-$link = "https://open.spotify.com/track/2073QOEC8rBtSyTsRyaWiP?si=c5e6a93ada5f4eed";
 
 if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
 ?>
