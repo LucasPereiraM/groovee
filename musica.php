@@ -51,6 +51,12 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
             </div>
 
             <div class="row">
+
+                <div class="col"> 
+                    <script> var php_link = "<?php echo $_SESSION['link']; ?>"; </script>
+                    <div id="embed-iframe"></div>
+                </div>
+
                 <div class="col">
                     <div class="musicInfo">
                         <h1> Música: <?php echo $_SESSION['nomeMusica'] ?> </h1>
@@ -61,14 +67,10 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                     </div>
                 </div>
 
-                <div class="col"> 
-                    <script> var php_link = "<?php echo $_SESSION['link']; ?>"; </script>
-                    <div id="embed-iframe"></div>
-                </div>
-
                 <div class="row"> 
                     <div class="musicInfo">
-                        <h2> Descrição: <?php echo $_SESSION['descricao'] ?> </h2>
+                        <h1> Descrição: </h1>
+                        <h2> <?php echo $_SESSION['descricao'] ?>  </h2>
                     </div>
                 </div>
             </div>
