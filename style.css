@@ -59,3 +59,10 @@ label{
 .userInfo a{
     color: white;
 }
+
+.musicInfo{
+    background-color:#24744d;
+}
+.musicInfo h1,h2{
+    color: white;
+}

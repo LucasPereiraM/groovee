@@ -20,7 +20,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
         <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
-        <script type="text/javascript" src=""></script>
+
     </head>
     <header>
         <ul class="nav justify-content-center">
@@ -102,7 +102,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                                     while ($dados = $sql_query->fetch_assoc()) {
                                     ?>
                                         <tr>
-                                            <td><?php echo $dados['nome']; ?></td>
+                                            <td> <a href="musica.php">  <?php echo $dados['nome']; ?> </a> </td> 
                                             <td><?php echo $dados['artista']; ?></td>
                                             <td><?php echo $dados['album']; ?></td>
                                             <td><?php echo $dados['genero']; ?></td>
@@ -111,6 +111,15 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                                             <script> var php_link = "<?php echo $dados['link']; ?>"; </script> 
                                             <td> <div id="embed-iframe"></div> </td>
                                         </tr>
+
+                                        <?php
+                                        $_SESSION['nomeMusica'] = $dados['nome'];
+                                        $_SESSION['artista'] = $dados['artista'];
+                                        $_SESSION['album'] = $dados['album'];
+                                        $_SESSION['genero'] = $dados['genero'];
+                                        $_SESSION['ano'] = $dados['ano'];
+                                        $_SESSION['link'] = $dados['link'];
+                                        ?>
                                 <?php
                                     }
                                 }
