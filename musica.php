@@ -46,7 +46,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
     <body>
         <div class="container">
 
-            <div class="row">
+            <div>
                 <br><br>
             </div>
 
@@ -60,15 +60,11 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                         <h2> Ano: <?php echo $_SESSION['ano'] ?> </h2>
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    <script>
-                            var php_link = "<?php echo $_SESSION['link']; ?>";
-                    </script>
-                        <div id="embed-iframe"></div>
-                </div>   
+                <div class="col"> 
+                    <script> var php_link = "<?php echo $_SESSION['link']; ?>"; </script>
+                    <div id="embed-iframe"></div>
+                </div>
             </div>
 
             <script>

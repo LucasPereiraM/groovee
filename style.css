@@ -37,6 +37,9 @@ body{
     text-align: center;
     background-color: #fff;
 }
+.form h1{
+    color:#1b221b;
+}
 #enviar{
     font-size: 15px;
     padding: 5px 15px;
@@ -56,7 +59,7 @@ label{
     background-color: #24744d;
 }
 
-.userInfo a{
+.userInfo a,h1,h2{
     color: white;
 }
 
@@ -65,4 +68,5 @@ label{
 }
 .musicInfo h1,h2{
     color: white;
+    text-indent: 20px;
 }
