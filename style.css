@@ -57,6 +57,7 @@ label{
 
 .userInfo{
     background-color: #24744d;
+    border-radius: 12px;
 }
 
 .userInfo a,h1,h2{
@@ -66,8 +67,9 @@ label{
 
 .musicInfo{
     background-color:#24744d;
+    border-radius: 20px;
 }
 .musicInfo h1,h2{
     color: white;
-    text-indent: 20px;
+    text-indent: 25px;
 }
