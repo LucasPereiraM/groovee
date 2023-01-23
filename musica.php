@@ -65,6 +65,12 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                     <script> var php_link = "<?php echo $_SESSION['link']; ?>"; </script>
                     <div id="embed-iframe"></div>
                 </div>
+
+                <div class="row"> 
+                    <div class="musicInfo">
+                        <h2> Descrição: <?php echo $_SESSION['descricao'] ?> </h2>
+                    </div>
+                </div>
             </div>
 
             <script>

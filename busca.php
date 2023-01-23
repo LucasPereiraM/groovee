@@ -119,6 +119,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                                         $_SESSION['genero'] = $dados['genero'];
                                         $_SESSION['ano'] = $dados['ano'];
                                         $_SESSION['link'] = $dados['link'];
+                                        $_SESSION['descricao'] = $dados['descricao'];
                                         ?>
                                 <?php
                                     }
