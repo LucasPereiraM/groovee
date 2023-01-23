@@ -29,7 +29,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="index.php">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Faça Login</a>

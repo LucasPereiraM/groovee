@@ -43,7 +43,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
   <body>
     <div class="container">
 
-      <div class="row">
+      <div>
         <br><br>
       </div>
 
