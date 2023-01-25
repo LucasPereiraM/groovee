@@ -54,24 +54,24 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="card-title"> Música: </h1>
-                            <h3 class="card-text"><?php echo $_SESSION['nomeMusica'] ?> </h3>
-                            <h1 class="card-text"> Artista: </h1>
-                            <h3 class="card-text"> <?php echo $_SESSION['artista'] ?> </h3>
-                            <h1 class="card-text"> Álbum: </h1>
-                            <h3 class="card-text"> <?php echo $_SESSION['album'] ?> </h3>
-                            <h1 class="card-text"> Gênero: </h1>
-                            <h3 class="card-text"> <?php echo $_SESSION['genero'] ?> </h3>
-                            <h1 class="card-text"> Ano: </h1>
-                            <h3 class="card-text"> <?php echo $_SESSION['ano'] ?> </h3>
+                            <h3 class="card-header"> Música: </h3>
+                            <h4 class="card-text text-muted"><?php echo $_SESSION['nomeMusica'] ?> </h4>
+                            <h3 class="card-header"> Artista: </h3>
+                            <h4 class="card-text text-muted"> <?php echo $_SESSION['artista'] ?> </h4>
+                            <h3 class="card-header"> Álbum: </h3>
+                            <h4 class="card-text text-muted"> <?php echo $_SESSION['album'] ?> </h4>
+                            <h3 class="card-header"> Gênero: </h3>
+                            <h4 class="card-text text-muted"> <?php echo $_SESSION['genero'] ?> </h4>
+                            <h3 class="card-header"> Ano: </h3>
+                            <h4 class="card-text text-muted"> <?php echo $_SESSION['ano'] ?> </h4>
                         </div>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="card">
+                        <h3 class="card-header"> Descrição: </h3>
                         <div class="card-body">
-                            <h2 class="card-title"> Descrição: </h2>
                             <p class="card-text"> <?php echo $_SESSION['descricao'] ?> </p>
                         </div>
                     </div>

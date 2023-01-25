@@ -50,9 +50,9 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
       <div class="row">
         <div class="col">
           <div class="card">
+          <h3 class="card-header"> <?php echo $_SESSION['nome'] ?> </h3>
             <div class="card-body">
-              <h1> <?php echo $_SESSION['nome'] ?> </h1>
-              <h2> <?php echo $_SESSION['usuario'] ?> </h2>
+              <h4> <?php echo $_SESSION['usuario'] ?> </h4>
               <a href="logout.php">Fazer logout</a>
             </div>
           </div>
