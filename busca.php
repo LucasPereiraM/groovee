@@ -15,11 +15,50 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="barra_pesquisa.css">
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
         <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
+
+        <script>
+            window.onSpotifyIframeApiReady = (IFrameAPI) => {
+                let element = document.getElementById('embed-iframe');
+                let options = {
+                    uri: php_link
+                };
+                let callback = (EmbedController) => {};
+                IFrameAPI.createController(element, options, callback);
+            };
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $('.search-box input[type="text"]').on("keyup input", function() {
+                    /* Get input value on change */
+                    var inputVal = $(this).val();
+                    var resultDropdown = $(this).siblings(".result");
+                    if (inputVal.length) {
+                        $.get("backend-search.php", {
+                            term: inputVal
+                        }).done(function(data) {
+                            // Display the returned data in browser
+                            resultDropdown.html(data);
+                        });
+                    } else {
+                        resultDropdown.empty();
+                    }
+                });
+
+                // Set search input value on click of result item
+                $(document).on("click", ".result p", function() {
+                    $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+                    $(this).parent(".result").empty();
+                });
+            });
+        </script>
 
     </head>
     <header>
@@ -53,7 +92,10 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
 
             <div class="row-1">
                 <form action="">
-                    <input name="busca" value="<?php if (isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa" type="text" style="width:500px;">
+                    <div class="search-box">
+                        <input type="text" autocomplete="off" placeholder="Pesquise músicas, artistas, albuns, gêneros..." name="busca"/>
+                        <div class="result"></div>
+                    </div>
                     <button type="submit">Pesquisar</button>
                 </form>
             </div>
@@ -102,14 +144,18 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                                     while ($dados = $sql_query->fetch_assoc()) {
                                     ?>
                                         <tr>
-                                            <td> <a href="musica.php">  <?php echo $dados['nome']; ?> </a> </td> 
+                                            <td> <a href="musica.php"> <?php echo $dados['nome']; ?> </a> </td>
                                             <td><?php echo $dados['artista']; ?></td>
                                             <td><?php echo $dados['album']; ?></td>
                                             <td><?php echo $dados['genero']; ?></td>
                                             <td><?php echo $dados['ano']; ?></td>
 
-                                            <script> var php_link = "<?php echo $dados['link']; ?>"; </script> 
-                                            <td> <div id="embed-iframe"></div> </td>
+                                            <script>
+                                                var php_link = "<?php echo $dados['link']; ?>";
+                                            </script>
+                                            <td>
+                                                <div id="embed-iframe"></div>
+                                            </td>
                                         </tr>
 
                                         <?php
@@ -132,17 +178,6 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                     </table>
                 </div>
             </div>
-
-            <script>
-                window.onSpotifyIframeApiReady = (IFrameAPI) => {
-                    let element = document.getElementById('embed-iframe');
-                    let options = {
-                        uri: php_link
-                    };
-                    let callback = (EmbedController) => {};
-                    IFrameAPI.createController(element, options, callback);
-                };
-            </script>
 
         </div>
 

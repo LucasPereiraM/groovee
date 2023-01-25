@@ -20,6 +20,17 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
 
         <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
 
+        <script>
+                window.onSpotifyIframeApiReady = (IFrameAPI) => {
+                    let element = document.getElementById('embed-iframe');
+                    let options = {
+                        uri: php_link
+                    };
+                    let callback = (EmbedController) => {};
+                    IFrameAPI.createController(element, options, callback);
+                };
+            </script>
+
     </head>
     <header>
         <ul class="nav justify-content-center">
@@ -85,16 +96,6 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                 </div>
             </div>
 
-            <script>
-                window.onSpotifyIframeApiReady = (IFrameAPI) => {
-                    let element = document.getElementById('embed-iframe');
-                    let options = {
-                        uri: php_link
-                    };
-                    let callback = (EmbedController) => {};
-                    IFrameAPI.createController(element, options, callback);
-                };
-            </script>
         </div>
 
     </body>
