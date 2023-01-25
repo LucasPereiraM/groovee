@@ -95,7 +95,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                     <div id="embed-iframe"></div>
 
                     <form method="post">
-                        <input type="submit" name="button1" value="Adicionar aos favoritos" />
+                        <input type="submit" name="button1" value="Adicionar aos favoritos" style="border-radius: 20px;"/>
                     </form>
 
                     <?php 
