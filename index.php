@@ -17,6 +17,20 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
+    
+    <script>
+      window.onSpotifyIframeApiReady = (IFrameAPI) => {
+        let element = document.getElementById('embed-iframe');
+        let options = {
+          uri: php_link
+        };
+        let callback = (EmbedController) => {};
+        IFrameAPI.createController(element, options, callback);
+      };
+    </script>
+
   </head>
   <header>
     <ul class="nav justify-content-center">
@@ -50,7 +64,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
       <div class="row">
         <div class="col">
           <div class="card">
-          <h3 class="card-header"> <?php echo $_SESSION['nome'] ?> </h3>
+            <h3 class="card-header"> <?php echo $_SESSION['nome'] ?> </h3>
             <div class="card-body">
               <h4> <?php echo $_SESSION['usuario'] ?> </h4>
               <a href="logout.php">Fazer logout</a>
@@ -59,7 +73,54 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
         </div>
       </div>
 
-    </div>
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h3 class="card-header">Música Favorita: </h3>
+            <div class="card-body">
+              <h4>
+                <?php if (isset($_SESSION['nome_mus_fav'])) {
+                  echo "Música: " . $_SESSION['nome_mus_fav'];
+                } else {
+                  echo "Sem música favorita adicionada!";
+                }
+                ?>
+              </h4>
+              <h4>
+                <?php if (isset($_SESSION['artista_mus_fav'])) {
+                  echo "Artista: " . $_SESSION['artista_mus_fav'];
+                }
+                ?>
+              </h4>
+              <h4>
+                <?php if (isset($_SESSION['album_mus_fav'])) {
+                  echo "Álbum: " . $_SESSION['album_mus_fav'];
+                }
+                ?>
+              </h4>
+              <h4>
+                <?php if (isset($_SESSION['genero_mus_fav'])) {
+                  echo "Gênero: " . $_SESSION['genero_mus_fav'];
+                }
+                ?>
+              </h4>
+              <h4>
+                <?php if (isset($_SESSION['ano_mus_fav'])) {
+                  echo "Ano: " . $_SESSION['ano_mus_fav'];
+                }
+                ?>
+              </h4>
+            </div>
+
+            <div class="col">
+              <script>
+                var php_link = "<?php echo $_SESSION['link_mus_fav']; ?>";
+              </script>
+              <div id="embed-iframe"></div>
+            </div>
+          </div>
+
+        </div>
 
   </body>
   <footer>

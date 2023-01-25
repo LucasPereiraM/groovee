@@ -21,15 +21,15 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
         <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
 
         <script>
-                window.onSpotifyIframeApiReady = (IFrameAPI) => {
-                    let element = document.getElementById('embed-iframe');
-                    let options = {
-                        uri: php_link
-                    };
-                    let callback = (EmbedController) => {};
-                    IFrameAPI.createController(element, options, callback);
+            window.onSpotifyIframeApiReady = (IFrameAPI) => {
+                let element = document.getElementById('embed-iframe');
+                let options = {
+                    uri: php_link
                 };
-            </script>
+                let callback = (EmbedController) => {};
+                IFrameAPI.createController(element, options, callback);
+            };
+        </script>
 
     </head>
     <header>
@@ -93,6 +93,22 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                         var php_link = "<?php echo $_SESSION['link']; ?>";
                     </script>
                     <div id="embed-iframe"></div>
+
+                    <form method="post">
+                        <input type="submit" name="button1" value="Adicionar aos favoritos" />
+                    </form>
+
+                    <?php 
+                        if(isset($_POST['button1'])) {
+                        $_SESSION['nome_mus_fav'] = $_SESSION['nomeMusica'];
+                        $_SESSION['artista_mus_fav'] = $_SESSION['artista'];
+                        $_SESSION['album_mus_fav'] = $_SESSION['album'];
+                        $_SESSION['genero_mus_fav'] = $_SESSION['genero'];
+                        $_SESSION['ano_mus_fav'] = $_SESSION['ano'];
+                        $_SESSION['link_mus_fav'] = $_SESSION['link'];
+                        }
+                    ?>
+
                 </div>
             </div>
 
