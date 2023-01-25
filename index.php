@@ -19,7 +19,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
-    
+
     <script>
       window.onSpotifyIframeApiReady = (IFrameAPI) => {
         let element = document.getElementById('embed-iframe');
@@ -74,6 +74,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
       </div>
 
       <div class="row">
+        
         <div class="col">
           <div class="card">
             <h3 class="card-header">Música Favorita: </h3>
@@ -118,9 +119,10 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
               </script>
               <div id="embed-iframe"></div>
             </div>
+            
           </div>
-
         </div>
+      </div>
 
   </body>
   <footer>
