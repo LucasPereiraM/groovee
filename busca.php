@@ -82,7 +82,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                                 </tr>
                                 <?php
                             } else {
-                                $pesquisa = $connMusic->real_escape_string($_GET['busca']);
+                                $pesquisa = $conn->real_escape_string($_GET['busca']);
                                 $sql_code = "SELECT * 
                                 FROM listamusicas 
                                 WHERE nome LIKE '%$pesquisa%' 
@@ -90,7 +90,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['nome'])) {
                                 OR album LIKE '%$pesquisa%'
                                 OR genero LIKE '%$pesquisa%'
                                 OR ano LIKE '%$pesquisa%'";
-                                $sql_query = $connMusic->query($sql_code) or die("ERRO ao consultar! " . $connMusic->error);
+                                $sql_query = $conn->query($sql_code) or die("ERRO ao consultar! " . $conn->error);
 
                                 if ($sql_query->num_rows == 0) {
                                 ?>

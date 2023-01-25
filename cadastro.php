@@ -6,6 +6,7 @@ if (isset($_POST['cadastrobtn']) && !$empty) {
   
   $result = mysqli_query($conn, "INSERT INTO usuarios(nome, email, senha)
             VALUES ('$nome', '$email', '$senha')");
+  $senhaErr = "Usuário criado com sucesso!";
 }
 
 ?>

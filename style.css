@@ -64,12 +64,3 @@ label{
     color: white;
     text-indent: 20px;
 }
-
-.musicInfo{
-    background-color:#24744d;
-    border-radius: 20px;
-}
-.musicInfo h1,h2{
-    color: white;
-    text-indent: 25px;
-}
